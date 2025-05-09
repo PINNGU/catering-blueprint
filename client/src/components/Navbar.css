@@ -12,7 +12,7 @@
   }
   .navbar-dark{
     background-color: rgba(94, 90, 90, 0.7);
-    transition: background-color 2s ease, box-shadow 2s ease; 
+    transition: background-color 3s ease, box-shadow 3s ease; 
     
   }
   .shadow{
@@ -27,7 +27,7 @@
 
   }
   .home-icon:hover{
-    fill:#eee; 
+    fill:rgba(var(--color1),1); 
   }
 
   .navbar ul,.navbar-dark ul{
@@ -41,11 +41,11 @@
 
   .navbar li a{
     text-decoration: none;
-    color:#e0c8c8;
+    color:rgba(var(--color2),1);
   }
 
   .navbar li a:hover {
-   color: #eee; 
+   color:rgba(var(--color1),1) 
   }
 
   .settings{

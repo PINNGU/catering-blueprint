@@ -1,0 +1,30 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top:3rem;
+}
+
+.gallery-item {
+
+  padding: 5px;
+  width: 20rem;
+  height: 6rem;
+  max-width: 90vw;
+  box-shadow: 2px 2px 8px rgba(var(--color4),0.6);
+  transition: transform 0.3s ease;
+  
+}
+
+.gallery-item:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+
+.rotate-0 { transform: rotate(-5deg); }
+.rotate-1 { transform: rotate(3deg); }
+.rotate-2 { transform: rotate(-7deg); }
+.rotate-3 { transform: rotate(5deg); }
+.rotate-4 { transform: rotate(-2deg); }

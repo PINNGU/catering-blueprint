@@ -1,0 +1,48 @@
+.desc{
+    margin-top: 10rem;
+    
+}
+
+.desc h2{
+    font-family: var(--font-primary);
+    color:rgba(var(--color2),0.85);
+    font-size:1.7rem;
+    padding: 0.9rem;
+}
+
+.desc h1{
+    font-family: var(--font-primary);
+    color:rgba(var(--color2),0.85);
+    font-size:3rem;
+    padding: 0.9rem;
+    
+}
+
+.insta-link{
+    font-family: var(--font-primary);
+    color:rgba(var(--color1),1) !important;
+    font-size:3rem;
+    padding: 0.9rem;
+}
+
+.location-icon{
+    width: 1em;
+    height: 1em;
+}
+
+.desc span{
+    font-family: var(--font-primary);
+    color:rgba(var(--color2),1);
+    font-size:4rem;
+    padding: 2rem;
+    
+}
+
+.insta-icon{
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.desc a{
+      color: rgba(var(--color1),1);     
+}

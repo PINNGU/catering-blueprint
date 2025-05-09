@@ -1,0 +1,35 @@
+.sneakpeak{
+
+  border: 1px solid rgba(var(--color4),1);
+  border-radius: 12px;
+  padding: 1rem;
+  color: rgba(var(--color2),1);
+  background-color:rgba(var(--color4),0.7);
+ 
+  font-family: var(--font-third);
+  font-size: 2rem;
+  min-height: 45rem;
+}
+
+.showcase{
+    margin-top: 5rem;
+}
+
+.showcase h2{
+       font-family: var(--font-primary);
+    color: rgba(var(--color1),0.85);
+    font-size:3rem;
+    padding: 0.9rem;
+}
+
+.showcase h3{
+    font-family: var(--font-primary);
+    color: rgba(var(--color1),1);
+    font-size:2rem;
+    padding: 0.9rem;
+    
+}
+
+.showcase a{
+    color:inherit;
+}
