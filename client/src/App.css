@@ -1,5 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+ 
+}
+.Navbar {
+  z-index: 1000;
+}
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {

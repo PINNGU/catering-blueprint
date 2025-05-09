@@ -1,24 +1,48 @@
-import logo from './logo.svg';
+
 import './App.css';
 import axios from 'axios';
+import Navbar from "./components/Navbar"
+import Main from "./components/Main"
+import React, { useState, useEffect,useLayoutEffect } from 'react';
 
 function App() {
+  const [atTop, setAtTop] = useState(true);
+  const [showShadow, setShowShadow] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    let timeoutId = null;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setAtTop(scrollY === 0);
+      setShowShadow(false);
+      setScrolling(true);
+  
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY === 0) {
+          setShowShadow(true);
+        }
+        setScrolling(false);
+        if (currentScrollY !== 0) {
+          setShowShadow(true);
+        }
+      }, 500);
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    handleScroll();
+  
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+        <Navbar showShadow={showShadow  || !scrolling}/>
+        <Main></Main>
     </div>
   );
 }

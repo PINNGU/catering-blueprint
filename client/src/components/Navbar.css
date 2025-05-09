@@ -1,0 +1,56 @@
+
+.navbar{
+    position: fixed;   
+    top: 0; left: 0;
+    z-index: 9999;     
+    width:100%;
+    height: 5%;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.55s ease, box-shadow 0.55s ease;
+
+  }
+  .navbar-dark{
+    background-color: rgba(94, 90, 90, 0.7);
+    transition: background-color 2s ease, box-shadow 2s ease; 
+    
+  }
+  .shadow{
+    box-shadow: rgba(0,0,0,0.4);
+  }
+  
+  .home-icon{
+    width: 30px;
+    height: 30px;
+    gap:0.7em;
+    margin-top: 0.25em;
+
+  }
+  .home-icon:hover{
+    fill:#eee; 
+  }
+
+  .navbar ul,.navbar-dark ul{
+    list-style: none;    
+    display: flex;   
+    justify-content: center;    
+    gap: 1em;            
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar li a{
+    text-decoration: none;
+    color:#e0c8c8;
+  }
+
+  .navbar li a:hover {
+   color: #eee; 
+  }
+
+  .settings{
+    display: flex;   
+    gap: 0.7em;
+    justify-content: right;  
+    justify-self: right;
+  }
