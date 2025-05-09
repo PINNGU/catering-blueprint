@@ -4,6 +4,8 @@ import axios from 'axios';
 import Navbar from "./components/Navbar"
 import Main from "./components/Main"
 import React, { useState, useEffect,useLayoutEffect } from 'react';
+import Menu from './components/Menu';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [atTop, setAtTop] = useState(true);
@@ -42,7 +44,10 @@ function App() {
     <div className="App">
     
         <Navbar showShadow={showShadow  || !scrolling}/>
-        <Main></Main>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/menu" element={<Menu />} />
+      </Routes>
     </div>
   );
 }

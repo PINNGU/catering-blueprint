@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import "./Navbar.css"
 import {ReactComponent as HomeIcon } from "../assets/home.svg"
 import {ReactComponent as SettingsIcon } from "../assets/settings.svg"
+import { NavLink } from 'react-router-dom'
 
 function Navbar ({showShadow}){
   
@@ -13,14 +14,14 @@ function Navbar ({showShadow}){
         <div>   
             <ul>   
                 <li>    
-                    <a href="#">
+                    <NavLink to="/">
                         <HomeIcon className="home-icon"/>
-                    </a>
+                    </NavLink>
                 </li> 
                 <li>    
-                    <a href="#">
+                    <NavLink to="/menu">
                         Meni
-                    </a>
+                    </NavLink>
                 </li>
                 <li>    
                     <a href="#">
