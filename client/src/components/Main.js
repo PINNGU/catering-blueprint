@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import "./Main.css"
+import MenuCard from './MenuCard'
 
 function Main(){
     
@@ -27,7 +28,6 @@ function Main(){
               <div className="background">
                   <div className='overlay'></div>
                           <div className="content">
-  
                             
                           </div>
               </div>
