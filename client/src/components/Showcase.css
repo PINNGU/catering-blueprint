@@ -1,0 +1,40 @@
+.sneakpeak{
+  max-width: 99vw;
+  border: 1px solid rgba(var(--color4),1);
+  border-radius: 12px;
+  padding: 1rem;
+  color: rgba(var(--color2),1);
+  background-color:rgba(var(--color4),0.7);
+ 
+  font-family: var(--font-third);
+
+  margin:1vw;
+    
+}
+
+.sneakpeak p{
+    font-size: clamp(1.5rem,2vw,3rem);
+}
+
+.showcase{
+    margin-top: 5vh;
+}
+
+.showcase h2{
+       font-family: var(--font-primary);
+    color: rgba(var(--color1),0.85);
+    font-size: clamp(1.5rem,6vw,3.2rem);
+    padding: 0.5vw;
+}
+
+.showcase h3{
+    font-family: var(--font-primary);
+    color: rgba(var(--color1),1);
+    font-size: clamp(1.5rem,6vw,2.5rem);
+    padding: 0.5vw;
+    
+}
+
+.showcase a{
+    color:inherit;
+}

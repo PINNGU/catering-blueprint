@@ -1,3 +1,15 @@
+:root{
+  --color1:250, 248, 241; /*FAF8F1*/ 
+  --color2:250, 234, 177; /*FAEAB1*/
+  --color3:229,186,115; /*E5BA73*/
+  --color4:197,137,64; /*C58940*/
+  --font-primary: "Numans", sans-serif; /*simple sleek*/
+  --font-secondary: "Amatic SC" ,sans-serif;  /*simple handwritten*/
+  --font-third:'Raleway' ,sans-serif;  /*simple modern clean */
+
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +23,8 @@ html, body {
   scroll-behavior: smooth;
  
 }
+
+
 .Navbar {
   z-index: 1000;
 }

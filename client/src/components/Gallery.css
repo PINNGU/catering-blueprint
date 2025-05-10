@@ -1,0 +1,35 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top:3vh;
+}
+
+@media(max-width:760px){
+  .gallery {
+    margin-left: -40vw;
+  }
+}
+
+.gallery-item {
+
+  padding: 2vw;
+  width: 14vw;
+  height:6vh;
+  max-width: 90vw;
+  transition: transform 0.3s ease;
+  
+}
+
+.gallery-item:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+
+.rotate-0 { transform: rotate(-5deg); }
+.rotate-1 { transform: rotate(3deg); }
+.rotate-2 { transform: rotate(-7deg); }
+.rotate-3 { transform: rotate(5deg); }
+.rotate-4 { transform: rotate(-2deg); }
