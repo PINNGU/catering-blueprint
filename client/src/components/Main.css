@@ -55,7 +55,7 @@
 
   }
 #three{
-    
+    overflow-y: hidden;
 }
 #three .background {
     position: relative;
@@ -87,21 +87,34 @@
     
 }
 
-.grid{
+.grid {
   display: grid;
-  grid-template-columns:1fr 6fr 1fr 8fr 1fr;
+  grid-template: 1fr / 1fr 6fr 1fr 8fr 1fr; 
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template: auto auto auto auto auto / 1fr; 
+  }
 }
 
 .grid-two{
   display: grid;
-  grid-template-columns:0.5fr 6fr 0.5fr 10fr 0.5fr;
+  grid-template:1fr / 0.5fr 6fr 0.5fr 10fr 0.5fr;
 }
+
+@media (max-width: 760px){
+  .grid-two{
+    grid-template: auto auto auto auto auto / 1fr;
+  }
+}
+
 
 
 
 .main-title-site h1 {
 
-    font-size: 15rem;
+    font-size: clamp(4rem,12vw,25rem);
     font-family: var(--font-secondary);
     letter-spacing: 2px;
     margin-top:0.2rem;
@@ -110,7 +123,7 @@
 
 .main-title-site h2 {
 
-    font-size: 4rem;
+    font-size: clamp(3rem,12vw,6rem);
     font-family: var(--font-three);
     letter-spacing: 2px;
     margin-top:13rem;
@@ -119,7 +132,7 @@
   }
 
 .end {
-    font-size: 3rem !important;
+    font-size: clamp(2rem,4vw,3rem) !important;
     font-family: var(--font-secondary) !important;
     letter-spacing: 2px;
     margin-top:0.6rem;

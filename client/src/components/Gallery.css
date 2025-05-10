@@ -4,16 +4,21 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  margin-top:3rem;
+  margin-top:3vh;
+}
+
+@media(max-width:760px){
+  .gallery {
+    margin-left: -40vw;
+  }
 }
 
 .gallery-item {
 
-  padding: 5px;
-  width: 20rem;
-  height: 6rem;
+  padding: 2vw;
+  width: 14vw;
+  height:6vh;
   max-width: 90vw;
-  box-shadow: 2px 2px 8px rgba(var(--color4),0.6);
   transition: transform 0.3s ease;
   
 }

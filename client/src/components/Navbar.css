@@ -5,7 +5,7 @@
     z-index: 9999;     
     width:100%;
     height: 5%;
-    font-size: 2rem;
+    font-size: clamp(1.65rem,4vw,2.3rem);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.55s ease, box-shadow 0.55s ease;
 
@@ -20,9 +20,9 @@
   }
   
   .home-icon{
-    width: 30px;
-    height: 30px;
-    gap:0.7em;
+    width: 8vw;
+    height: 3vh;
+    gap:0.1vw;
     margin-top: 0.25em;
 
   }

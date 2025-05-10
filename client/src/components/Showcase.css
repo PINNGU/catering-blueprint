@@ -1,5 +1,5 @@
 .sneakpeak{
-
+  max-width: 99vw;
   border: 1px solid rgba(var(--color4),1);
   border-radius: 12px;
   padding: 1rem;
@@ -7,26 +7,31 @@
   background-color:rgba(var(--color4),0.7);
  
   font-family: var(--font-third);
-  font-size: 2rem;
-  min-height: 45rem;
+
+  margin:1vw;
+    
+}
+
+.sneakpeak p{
+    font-size: clamp(1.5rem,2vw,3rem);
 }
 
 .showcase{
-    margin-top: 5rem;
+    margin-top: 5vh;
 }
 
 .showcase h2{
        font-family: var(--font-primary);
     color: rgba(var(--color1),0.85);
-    font-size:3rem;
-    padding: 0.9rem;
+    font-size: clamp(1.5rem,6vw,3.2rem);
+    padding: 0.5vw;
 }
 
 .showcase h3{
     font-family: var(--font-primary);
     color: rgba(var(--color1),1);
-    font-size:2rem;
-    padding: 0.9rem;
+    font-size: clamp(1.5rem,6vw,2.5rem);
+    padding: 0.5vw;
     
 }
 

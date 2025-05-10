@@ -10,7 +10,7 @@ import Gallery from "./Gallery.jsx"
 function Main(){
     
     return (
-        <div class ="main">
+        <div className ="main">
 
             <div className='compartment' id="one">
                   <div className='background'>
