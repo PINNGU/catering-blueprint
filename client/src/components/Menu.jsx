@@ -1,9 +1,53 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './Menu.css';
-import MenuCard from './MenuCard'; // Import MenuCard component
+import MenuCard from './MenuCard';
 
 function Menu() {
-  // Example data for Today's Menu and Complete Menu with 10 items each
+  const scrollContainersRef = useRef([]);
+
+  useEffect(() => {
+    scrollContainersRef.current.forEach((container) => {
+      if (!container) return;
+
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      const onPointerDown = (e) => {
+        isDragging = true;
+        container.classList.add("active-drag");
+        document.body.classList.add("no-select"); 
+        startX = e.pageX;
+        scrollLeft = container.scrollLeft;
+        container.setPointerCapture(e.pointerId);
+        };
+
+      const onPointerMove = (e) => {
+        if (!isDragging) return;
+        const x = e.pageX;
+        const walk = startX - x;
+        container.scrollLeft = scrollLeft + walk;
+      };
+
+      const onPointerUp = (e) => {
+        isDragging = false;
+        container.classList.remove("active-drag");
+        document.body.classList.remove("no-select"); 
+        container.releasePointerCapture(e.pointerId);
+      };
+
+      container.addEventListener("pointerdown", onPointerDown);
+      container.addEventListener("pointermove", onPointerMove);
+      container.addEventListener("pointerup", onPointerUp);
+
+      return () => {
+        container.removeEventListener("pointerdown", onPointerDown);
+        container.removeEventListener("pointermove", onPointerMove);
+        container.removeEventListener("pointerup", onPointerUp);
+      };
+    });
+  }, []);
+
   const todaysMenuItems = [
     { name: "Margherita", description: "Classic pizza with fresh basil.", price: 12.00, image: "/burger.jpg" },
     { name: "Spaghetti", description: "Traditional Italian pasta with marinara sauce.", price: 14.00, image: "/burger.jpg" },
@@ -45,43 +89,32 @@ function Menu() {
       </section>
 
       <div className="menus">
-      <section className="menu-section">
-        <h2>Današnji Meni</h2>
-        <p className="menu-subtitle">
-          Pogledajte šta smo danas spremili za vas.
-        </p>
-        <div className="scrollable-cards">
-          {todaysMenuItems.map((item, index) => (
-            <MenuCard
-              key={index}
-              name={item.name}
-              description={item.description}
-              price={item.price}
-              image={item.image}
-            />
-          ))}
-        </div>
-      </section>
+        <section className="menu-section">
+          <h2>Današnji Meni</h2>
+          <p className="menu-subtitle">Pogledajte šta smo danas spremili za vas.</p>
+          <div
+            className="scrollable-cards"
+            ref={(el) => (scrollContainersRef.current[0] = el)}
+          >
+            {todaysMenuItems.map((item, index) => (
+              <MenuCard key={index} {...item} />
+            ))}
+          </div>
+        </section>
 
-      
-      <section className="menu-section">
-        <h2>Sve u Ponudi</h2>
-        <p className="menu-subtitle">
-          Ovdje možete videti našu celokupnu ponudu.
-        </p>
-        <div className="scrollable-cards">
-          {completeMenuItems.map((item, index) => (
-            <MenuCard
-              key={index}
-              name={item.name}
-              description={item.description}
-              price={item.price}
-              image={item.image}
-            />
-          ))}
-        </div>
-      </section>
-    </div>
+        <section className="menu-section">
+          <h2>Sve u Ponudi</h2>
+          <p className="menu-subtitle">Ovdje možete videti našu celokupnu ponudu.</p>
+          <div
+            className="scrollable-cards"
+            ref={(el) => (scrollContainersRef.current[1] = el)}
+          >
+            {completeMenuItems.map((item, index) => (
+              <MenuCard key={index} {...item} />
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

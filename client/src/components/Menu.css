@@ -1,7 +1,6 @@
 /* General Layout */
 .menu-page {
-  font-family: 'Georgia', serif;
-  color: #222;
+  font-family: var(--font-primary);
 }
 
 /* Hero Section */
@@ -9,11 +8,12 @@
   background-image: url("../assets/food.jpg");
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 45vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .hero-overlay {
@@ -25,57 +25,86 @@
   justify-content: center; 
 }
 
-.hero-text {
-  color: white;
-  max-width: 600px;
-  text-align: center;
-}
-
 .hero-text h1 {
-  font-size: 3rem;
+  color: rgba(var(--color4), 1);
+  font-family: var(--font-secondary);
+  font-size: clamp(5rem, 5vw, 10rem);
   margin-bottom: 20px;
 }
 
 .hero-text p {
-  font-size: 1.2rem;
+  color: rgba(var(--color2), 1);
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 5vw, 1.5rem);
   margin-bottom: 20px;
 }
 
 /* Menu Sections */
 .menu-section {
-  padding: 40px 30px;
+  padding-top: clamp(10px, 4vw, 30px);
+  padding-bottom: clamp(20px, 4vw, 40px);
+  padding-left: clamp(15px, 5vw, 30px);
+  padding-right: clamp(15px, 5vw, 30px);
+  
   background-color: transparent;
   text-align: center;
 }
 
 .menu-section h2 {
-  font-size: 2.5rem;
+  font-family: var(--font-third);
+  font-size: clamp(2rem, 5vw, 2.5rem);
   margin-bottom: 10px;
-  color: #f0f0f0;
+  color: rgba(var(--color4), 0.9);
 }
 
 .menu-subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 5vw, 1.1rem);
+  font-family: var(--font-primary);
   max-width: 700px;
-  margin: 0 auto 30px;
+  margin: 0 auto clamp(10px, 2vw, 20px);
   text-align: center;
-  color: #f0f0f0;
+  color: rgba(var(--color1), 0.9);
 }
 
 .scrollable-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-  gap: 20px; 
-  max-height: 500px; 
-  overflow-y: scroll; 
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 10px 0;
-  scrollbar-width: none;
+  scroll-behavior: smooth;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 134, 11, 0.6) transparent;
+  overscroll-behavior: contain;
+  min-width: clamp(100px, 5vw, 280px); 
+  flex: 0 0 auto;
 }
 
 
+
+/* WebKit Scrollbar Styling (Chrome, Edge, Safari) */
 .scrollable-cards::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar */
+  height: 6px;
 }
+
+.scrollable-cards::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+  margin-inline: 10px; /* Adds padding on both sides of scrollbar */
+}
+
+.scrollable-cards::-webkit-scrollbar-thumb {
+  background-color: rgba(184, 134, 11, 0.3); /* Light brown with more transparency */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s ease;
+}
+.scrollable-cards::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(184, 134, 11, 0.6); /* Darker light brown on hover */
+}
+
 
 .menu-background-wrapper {
   background-image: url("../assets/blacbg.jpg");
@@ -86,5 +115,19 @@
   
 }
 
+.scrollable-cards > * {
+  min-width: clamp(90px, 5vw, 180px);
+  flex: 0 0 auto;
+}
 
+.scrollable-cards.active-drag {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 

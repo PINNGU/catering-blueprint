@@ -1,10 +1,11 @@
 .menu-card {
-    background-color: white;
+    background-color: rgba(var(--color1), 1);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 280px;
+    width: clamp(180px, 50vw, 280px);
     transition: transform 0.2s;
+    user-select: none;
   }
   
   .menu-card:hover {
@@ -15,28 +16,42 @@
     width: 100%;
     height: 180px;
     object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    pointer-events: auto;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    -o-user-drag: none;
   }
   
   .menu-card-content {
     padding: 16px;
     text-align: left;
+    font-family: var(--font-third);
   }
   
   .menu-title {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 5vw, 1.rem);
     font-weight: 600;
     margin: 0 0 8px;
-    font-family: 'Georgia', serif;
+    font-family: var(--font-secondary);
+    color: rgba(var(--color4), 0.9); /* Match color to global color */
   }
   
   .menu-description {
-    color: #555;
-    font-size: 0.95rem;
+    color: rgba(var(--color4), 0.7);
+    font-size: clamp(0.7rem, 5vw, 0.95rem);
     margin: 0 0 12px;
   }
   
   .menu-price {
+    font-family: var(--font-primary);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 5vw, 1.1rem);
+    color: rgba(var(--color4), 0.9); /* Use your global color for pricing */
   }
+
+  
   
