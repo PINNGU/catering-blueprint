@@ -43,8 +43,7 @@
 .menu-section {
   padding-top: clamp(10px, 4vw, 30px);
   padding-bottom: clamp(20px, 4vw, 40px);
-  padding-left: clamp(15px, 5vw, 30px);
-  padding-right: clamp(15px, 5vw, 30px);
+
   
   background-color: transparent;
   text-align: center;
@@ -69,7 +68,7 @@
 .scrollable-cards {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px);
   overflow-x: auto;
   overflow-y: hidden;
   padding: 10px 0;
