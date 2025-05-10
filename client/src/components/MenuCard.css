@@ -33,7 +33,8 @@
   }
   
   .menu-title {
-    font-size: clamp(1rem, 5vw, 1.rem);
+    font-size: clamp(2rem, 5vw, 2.3rem);
+    
     font-weight: 600;
     margin: 0 0 8px;
     font-family: var(--font-secondary);
