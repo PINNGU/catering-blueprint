@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import Main from "./components/Main"
 import React, { useState, useEffect,useLayoutEffect } from 'react';
 import Menu from './components/Menu';
+import AdminLogin from './components/AdminLogin'
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/admin-login" element = {<AdminLogin/>} />
       </Routes>
     </div>
   );

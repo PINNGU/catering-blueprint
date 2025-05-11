@@ -21,13 +21,16 @@
   
   .home-icon{
     width: 8vw;
-    height: 3vh;
+    height: 5vh;
     gap:0.1vw;
     margin-top: 0.25em;
+    transition: transform 1.5s ease;
 
   }
   .home-icon:hover{
     fill:rgba(var(--color1),1); 
+      transform: scale(1.2);
+  transition: transform 0.5s ease;
   }
 
   .menu-icon {

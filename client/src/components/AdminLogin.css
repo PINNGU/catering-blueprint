@@ -1,0 +1,80 @@
+   .login-background{
+    background-color: rgba(var(--color3),1);
+    top: 0; left: 0;
+     background-size: cover;
+    background-position: center;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    
+   }
+
+   .login-overlay{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    
+   
+   }
+   
+   
+   .login-container {
+    width:20vw;
+    justify-self: center;
+    position: relative;
+    margin-top:10vh;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--font-third);
+    
+    }
+
+input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+  font-size: 1rem;
+  background-color: rgba(var(--color4),1);
+   border: 1px solid rgba(var(--color4),1);
+  border-radius: 0.9;
+  font-family: var(--font-four);
+}
+
+button {
+  padding: 0.6rem;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgba(var(--color4),0.7);
+  border: 1px solid rgba(var(--color4),0.7);
+  border-radius: 0.65em;
+  font-family: var(--font-four);
+}
+
+.button:hover{
+    transform: scale(1.05);
+    
+}
+
+.error {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.success {
+  color: green;
+  margin-top: 0.5rem;
+}
+
+/* Mobile-friendly */
+@media (max-width: 450px) {
+  .login-container {
+    padding: 0.5rem;
+    width:75vw;
+  }
+
+  input, button {
+    font-size: 1rem;
+  }
+}
