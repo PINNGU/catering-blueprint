@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Menu.css';
 import MenuCard from './MenuCard';
 
 function Menu() {
+  const [completeMenuItems, setCompleteMenuItems] = useState([]);
+  const [TodaysMenuItems, setTodaysMenuItems] = useState([]);
   const scrollContainersRef = useRef([]);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function Menu() {
         startX = e.pageX;
         scrollLeft = container.scrollLeft;
         container.setPointerCapture(e.pointerId);
-        };
+      };
 
       const onPointerMove = (e) => {
         if (!isDragging) return;
@@ -48,31 +50,28 @@ function Menu() {
     });
   }, []);
 
-  const todaysMenuItems = [
-    { name: "Margherita", description: "Classic pizza with fresh basil.", price: 12.00, image: "/burger.jpg" },
-    { name: "Spaghetti", description: "Traditional Italian pasta with marinara sauce.", price: 14.00, image: "/burger.jpg" },
-    { name: "Caesar Salad", description: "Crispy lettuce with Caesar dressing.", price: 10.00, image: "/burger.jpg" },
-    { name: "Mushroom Risotto", description: "Creamy risotto with fresh mushrooms.", price: 15.00, image: "/burger.jpg" },
-    { name: "Tiramisu", description: "Classic Italian dessert with coffee and mascarpone.", price: 8.00, image: "/burger.jpg" },
-    { name: "Penne Arrabbiata", description: "Spicy pasta with tomato and chili sauce.", price: 13.00, image: "/burger.jpg" },
-    { name: "Panna Cotta", description: "Italian vanilla dessert with berry compote.", price: 7.00, image: "/burger.jpg" },
-    { name: "Lasagna", description: "Layered pasta with bolognese sauce and cheese.", price: 16.00, image: "/burger.jpg" },
-    { name: "Caprese Salad", description: "Fresh mozzarella, tomatoes, and basil.", price: 9.00, image: "/burger.jpg" },
-    { name: "Risotto Milanese", description: "Saffron risotto with a rich flavor.", price: 18.00, image: "/burger.jpg" },
-  ];
+  useEffect(() => {
+    fetch('http://localhost:5000/api/menu')
+      .then((res) => res.json())
+      .then((data) => {
+        setCompleteMenuItems(data);
+      })
+      .catch((err) => {
+        console.error("Failed to load menu items:", err);
+      });
+  }, []);
 
-  const completeMenuItems = [
-    { name: "Beef Steak", description: "Juicy steak cooked to perfection.", price: 25.00, image: "/burger.jpg" },
-    { name: "Lasagna", description: "Layered pasta with rich tomato sauce and cheese.", price: 18.00, image: "/burger.jpg" },
-    { name: "Risotto", description: "Creamy rice with mushrooms and parmesan.", price: 16.00, image: "/burger.jpg" },
-    { name: "Grilled Salmon", description: "Fresh salmon grilled with herbs.", price: 22.00, image: "/burger.jpg" },
-    { name: "Vegetarian Pizza", description: "Pizza topped with a variety of fresh veggies.", price: 14.00, image: "/burger.jpg" },
-    { name: "Fettuccine Alfredo", description: "Creamy pasta with Alfredo sauce.", price: 17.00, image: "/burger.jpg" },
-    { name: "Margherita Pizza", description: "Classic pizza with mozzarella and tomato.", price: 12.00, image: "/burger.jpg" },
-    { name: "Baked Ziti", description: "Pasta baked with tomato sauce and mozzarella.", price: 15.00, image: "/burger.jpg" },
-    { name: "Chicken Parmesan", description: "Breaded chicken with marinara and cheese.", price: 19.00, image: "/burger.jpg" },
-    { name: "Minestrone Soup", description: "Traditional Italian vegetable soup.", price: 10.00, image: "/burger.jpg" },
-  ];
+  useEffect(() => {
+    fetch('http://localhost:5000/api/todaysMenu')
+      .then((res) => res.json())
+      .then((data) => {
+        setTodaysMenuItems(data);
+      })
+      .catch((err) => {
+        console.error("Failed to load todays menu items:", err);
+      });
+  }, []);
+
 
   return (
     <div className="menu-background-wrapper">
@@ -96,7 +95,7 @@ function Menu() {
             className="scrollable-cards"
             ref={(el) => (scrollContainersRef.current[0] = el)}
           >
-            {todaysMenuItems.map((item, index) => (
+            {TodaysMenuItems.map((item, index) => (
               <MenuCard key={index} {...item} />
             ))}
           </div>
