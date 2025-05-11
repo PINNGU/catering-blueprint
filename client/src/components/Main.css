@@ -32,7 +32,7 @@
 
   }
 #two{
-    
+    overflow-x: hidden;
 }
 #two .background {
     position: relative;
@@ -56,6 +56,7 @@
   }
 #three{
     overflow-y: hidden;
+    overflow-x:hidden;
 }
 #three .background {
     position: relative;
@@ -94,7 +95,7 @@
 
 @media (max-width: 760px) {
   .grid {
-    grid-template: auto auto auto auto auto / 1fr; 
+    grid-template:0.00001fr 1fr 0.0001fr 1fr / 1fr; 
   }
 }
 
@@ -119,7 +120,18 @@
     letter-spacing: 2px;
     margin-top:0.2rem;
     color:rgba(var(--color1),0.8);
+    transition: transform 1.5s ease;
+    cursor:default;
   }
+
+  
+.main-title-site h1:hover{
+  transform: scale(1.025);
+  transition: transform 0.5s ease;
+  
+  }
+
+
 
 .main-title-site h2 {
 
@@ -128,8 +140,10 @@
     letter-spacing: 2px;
     margin-top:13rem;
     color:rgba(var(--color2),0.8);
-    
+    cursor:default;
   }
+
+
 
 .end {
     font-size: clamp(2rem,4vw,3rem) !important;
@@ -137,4 +151,5 @@
     letter-spacing: 2px;
     margin-top:0.6rem;
     color:rgba(var(--color1),0.8) !important;
+    cursor:default;
 }

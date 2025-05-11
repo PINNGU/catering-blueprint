@@ -6,9 +6,11 @@
   --font-primary: "Numans", sans-serif; /*simple sleek*/
   --font-secondary: "Amatic SC" ,sans-serif;  /*simple handwritten*/
   --font-third:'Raleway' ,sans-serif;  /*simple modern clean */
+  --font-four:'Jost',sans-serif; /*clean modern smooth*/
+  --font-five:'Caveat', cursive;  /*cursive written*/
+
 
 }
-
 
 * {
   margin: 0;

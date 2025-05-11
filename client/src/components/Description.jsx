@@ -7,7 +7,7 @@ function Description(){
 
     return (
         <div  className="desc">
-<h1><a href="#">Poručite</a> ili svratite svakim radnim danom od 10 do 16h. <br />Dobrodošli!</h1>
+<h1><a href="#">Poručite</a> ili svratite svakim radnim danom od 10 do 16h. <br /><b>Dobrodošli!</b></h1>
         <span><LocationIcon className="location-icon"></LocationIcon> Temerinska 7, Novi Sad</span>
         <br />
         <span><PhoneIcon className="location-icon"></PhoneIcon>   0644902757</span>
