@@ -1,58 +1,60 @@
 .menu-card {
-    aspect-ratio: 3 / 4;
-    background-color: rgba(var(--color1), 1);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    flex: 0 0 min(max(180px, 40vw), 260px);
-    transition: transform 0.2s;
-    user-select: none;
-  }
+  aspect-ratio: 3 / 4;
+  background-color: rgba(var(--color1), 1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 0 0 min(max(180px, 40vw), 260px);
+  transition: transform 0.2s;
+  user-select: none;
+  flex-direction: column; 
+}
   
   .menu-card:hover {
     transform: scale(1.02);
   }
   
-  .menu-image {
-    width: 100%;
-    height: 55%;
-    object-fit: cover;
-    user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    pointer-events: auto;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-    -ms-user-drag: none;
-    -o-user-drag: none;
-  }
+.menu-image {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  pointer-events: auto;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  -o-user-drag: none;
+}
   
-  .menu-card-content {
-    padding: clamp(0.2rem, 2vw, 1rem);
-    text-align: left;
-    font-family: var(--font-third);
-  }
+.menu-card-content {
+  padding: clamp(0.2rem, 1vw, 0.5rem);
+  text-align: left;
+  font-family: var(--font-third);
+  
+}
   
   .menu-title {
-    font-size: clamp(2rem, 5vw, 2.3rem);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     
     font-weight: 600;
     font-family: var(--font-secondary);
-    color: rgba(var(--color4), 0.9); /* Match color to global color */
+    color: rgba(var(--color4), 0.9); 
   }
   
   .menu-description {
     color: rgba(var(--color4), 0.7);
     font-family: var(--font-third);
-    font-size: clamp(0.5rem, 3vw, 0.90rem);
-    margin: 0 0 clamp(4px, 1.5vw, 12px);
+    font-size: clamp(0.5rem, 3vw, 1rem);
+    margin: 0 0 clamp(2px, 1.5vw, 10px);
   }
   
   .menu-price {
     font-family: var(--font-primary);
     font-weight: bold;
-    font-size: clamp(0.5rem, 3vw, 1.1rem);
-    color: rgba(var(--color4), 0.9); /* Use your global color for pricing */
+    font-size: clamp(0.5rem, 3vw, 1.5rem);
+    color: rgba(var(--color4), 0.9); 
   }
 
   
