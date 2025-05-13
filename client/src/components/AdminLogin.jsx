@@ -22,6 +22,7 @@ const handleLogin = async (e) => {
     });
 
     if (response.status === 200 && response.data.token) {
+      localStorage.setItem('adminToken', response.data.token);
       setSuccess('Login successful!');
       navigate('/menu')
     } else {
@@ -29,7 +30,7 @@ const handleLogin = async (e) => {
     }
   } catch (err) {
     if (err.response && err.response.data && err.response.data.message) {
-      setError(err.response.data.message);  // Show server-sent error message
+      setError(err.response.data.message); 
     } else {
       setError('Server error or connection problem.');
     }

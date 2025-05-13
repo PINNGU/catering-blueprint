@@ -6,7 +6,7 @@
   color: rgba(var(--color2),1);
   background-color:rgba(var(--color4),0.7);
  
-  font-family: var(--font-third);
+  font-family: var(--font-five);
   transition: transform 0.97s ease;
   margin:1vw;
     
@@ -30,7 +30,7 @@
 
 
 .showcase h2{
-    font-family: var(--font-primary);
+    font-family: var(--font-five);
     color: rgba(var(--color1),0.85);
     font-size: clamp(1.5rem,6vw,3.2rem);
     padding: 0.5vw;
@@ -45,7 +45,7 @@
 }
 
 .showcase h3{
-    font-family: var(--font-primary);
+    font-family: var(--font-five);
     color: rgba(var(--color1),1);
     font-size: clamp(1.5rem,6vw,2.5rem);
     padding: 0.5vw;
