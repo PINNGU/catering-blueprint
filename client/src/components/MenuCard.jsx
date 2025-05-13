@@ -4,7 +4,7 @@ import './MenuCard.css';
 const MenuCard = ({ image, name, description, price }) => {
   return (
     <div className="menu-card">
-      <img src={image} alt={name} className="menu-image" />
+      <img src={image} alt={name} className="menu-image" draggable="false" />
       <div className="menu-card-content">
         <h3 className="menu-title">{name}</h3>
         <p className="menu-description">{description}</p>

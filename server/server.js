@@ -17,7 +17,8 @@ let adminCollection;
 async function connectDB(){
     await client.connect();
     const db = client.db('catering');
-    menuCollection = db.collection('menu');
+    menuCollection = db.collection('menuItems')
+    todaysMenuCollection = db.collection('todaysMenu');
     adminCollection = db.collection('admin-users');
 
     setAdminCollection(adminCollection);
@@ -30,6 +31,31 @@ async function connectDB(){
 connectDB().catch(console.error);
 
 app.use('/api/admin', adminRoutes);
+
+
+
+app.get("/api/menu", async (req, res) => {
+  try {
+    if (!menuCollection) throw new Error('Database not connected');
+    const items = await menuCollection.find().toArray();
+    res.json(items);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch menu items' });
+  }
+});
+
+app.get("/api/todaysMenu", async (req, res) => {
+  try {
+    if (!menuCollection) throw new Error('Database not connected');
+    const items = await todaysMenuCollection.find().toArray();
+    res.json(items);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch todays menu items' });
+  }
+});
+
 
 
 const PORT = process.env.PORT || 5000;
