@@ -25,6 +25,8 @@ function Reviews() {
     if (!container) return;
 
     const onPointerDown = (e) => {
+      if (e.target.closest('a')) return;
+
       isDragging.current = true;
       container.classList.add('active-drag');
       cancelAnimationFrame(animationFrame.current);
@@ -58,10 +60,6 @@ function Reviews() {
       container.removeEventListener('pointerup', onPointerUp);
     };
   }, []);
-
-  
-
- 
 
   return (
     <section className="reviews-section">

@@ -4,14 +4,14 @@
     top: 0; left: 0;
     z-index: 9999;     
     width:100%;
-    height: 5%;
+    height: 6.5%;
     font-size: clamp(1.65rem,4vw,2.3rem);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.55s ease, box-shadow 0.55s ease;
 
   }
   .navbar-dark{
-    background-color: rgba(94, 90, 90, 0.7);
+    background-color: rgba(0, 0, 0, 0.705);
     transition: background-color 3s ease, box-shadow 3s ease; 
     
   }
@@ -28,6 +28,19 @@
   }
   .home-icon:hover{
     fill:rgba(var(--color1),1); 
+  }
+
+  .menu-icon {
+    gap:0.1vw;
+    margin-top: 0.25em;
+    height: 4vh;
+    width: 2.5vw;
+  }
+
+  @media ( max-width:760px){
+    menu-icon{
+      height: 1vh;
+    }
   }
 
   .navbar ul,.navbar-dark ul{

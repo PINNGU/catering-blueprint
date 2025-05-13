@@ -1,20 +1,33 @@
 .desc{
     margin-top: 10rem;
     padding:1vw;
+    background-color: rgba(var(--color4),0.5);
+    border: 1px solid rgba(var(--color4),0.75);
+    border-radius: 12px;
+    transition: transform 0.97s ease;
+}
+
+.desc:hover{
+    background-color: rgba(var(--color4),0.75);
+    transform: scale(1.15) rotate(1.5deg);
+    transition: transform 0.66s ease;
+    
 }
 
 .desc h2{
     font-family: var(--font-primary);
     color:rgba(var(--color2),0.85);
-    font-size:clamp(1rem,2vw,2rem);
+    font-size:clamp(1rem,2vw,1.5rem);
     padding: 0.9vw;
 }
 
 .desc h1{
-    font-family: var(--font-primary);
+    font-family: var(--font-five);
     color:rgba(var(--color2),0.85);
-    font-size:clamp(0.3rem,3vw,4.5rem);
+    font-size:clamp(1.2rem,4vw,3.0rem);
     padding: 1vw;
+    cursor:default;
+
     
 }
 
@@ -24,14 +37,15 @@
     font-size:clamp(0.7rem,3vw,1.9rem);
     padding: 0.9vw;
     margin-top:7vh;
+    cursor:default;
 }
 
 
 
 .insta-link{
-    font-family: var(--font-primary);
+    font-family: var(--font-four);
     color:rgba(var(--color1),1) !important;
-    font-size:clamp(2rem,2.5vw,5rem);
+    font-size:clamp(1.7rem,2.5vw,5rem);
     padding: 0.2vw;
 }
 
@@ -41,9 +55,9 @@
 }
 
 .desc span{
-    font-family: var(--font-primary);
+    font-family: var(--font-four);
     color:rgba(var(--color2),1);
-    font-size:clamp(2rem,4vw,4rem);
+    font-size:clamp(1.7rem,4vw,3rem);
     padding: 1vw;
     
 }

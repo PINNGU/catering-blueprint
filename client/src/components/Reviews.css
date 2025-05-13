@@ -39,7 +39,7 @@ cursor:grab;
 
 .review-card {
   flex: 1 0 calc(42% - 0.8vw);
-  border: 1px solid rgba(var(--color4),1);
+  border: 1px solid rgba(var(--color4),0.9);
 
   border-radius: 1vw;
   padding: 1rem;
@@ -49,12 +49,20 @@ cursor:grab;
   font-family: var(--font-three);
   font-size: clamp(0.5rem,4vw,1rem);
   max-height: 30vh;
+  transition: transform 0.8s ease;
   
   
 }
+.review-card:hover{
+  transform:scale(1.025);
+   transition: transform 0.5s ease;
+   background-color:rgba(var(--color4),0.90);
+}
+
 .review-card h3{
     user-select: none;
   -webkit-user-select: none;
+  font-family: var(--font-primary);
 }
 
 .review-card h3 a{
