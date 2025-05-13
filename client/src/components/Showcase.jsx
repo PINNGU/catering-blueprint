@@ -1,15 +1,20 @@
 import "./Showcase.css";
-import MenuCard from "./MenuCard"; // Import MenuCard
+import MenuCard from "./MenuCard";
+import React, { useRef, useEffect, useState } from 'react';
 
 function Showcase() {
-  const showcaseItems = [
-    { image: 'burger.jpg', name: 'Dish 1', description: 'Description of dish 1', price: 12.99 },
-    { image: 'burger.jpg', name: 'Dish 2', description: 'Description of dish 2', price: 10.99 },
-    { image: 'burger.jpg', name: 'Dish 3', description: 'Description of dish 3', price: 14.99 },
-    { image: 'burger.jpg', name: 'Dish 4', description: 'Description of dish 4', price: 9.99 },
-    { image: 'burger.jpg', name: 'Dish 5', description: 'Description of dish 5', price: 11.99 },
-    { image: 'burger.jpg', name: 'Dish 6', description: 'Description of dish 6', price: 15.99 },
-  ]; // Sample items. Replace with dynamic data if necessary.
+  const [showcaseItems, setShowCaseItems] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/menu')
+      .then((res) => res.json())
+      .then((data) => {
+        setShowCaseItems(data);
+      })
+      .catch((err) => {
+        console.error("Failed to load menu items:", err);
+      });
+  }, []);
 
   return (
     <div className="showcase">
