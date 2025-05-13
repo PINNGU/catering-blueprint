@@ -1,15 +1,18 @@
-.sneakpeak{
-  max-width: 99vw;
-  border: 1px solid rgba(var(--color4),1);
-  border-radius: 12px;
-  padding: 1rem;
-  color: rgba(var(--color2),1);
-  background-color:rgba(var(--color4),0.7);
- 
-  font-family: var(--font-five);
-  transition: transform 0.97s ease;
-  margin:1vw;
-    
+/* Showcase Container */
+.showcase {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(var(--color1), 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 60px; /* Adjust for navbar offset */
+  max-height: 60vh; /* Ensure it doesn't take up too much space */
+}
+
+.showcase h2 {
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: rgba(var(--color4), 0.9);
 }
 
 .sneakpeak:hover {
@@ -18,45 +21,45 @@
     transition: transform 0.66s ease;
 }
 
-.sneakpeak p{
-    font-size: clamp(1.5rem,2vw,3rem);
-    cursor:default;
+.sneakpeak {
+  margin-top: 20px;
+  background-color: rgba(var(--color2), 0.1); 
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.showcase{
-    margin-top: 6vh;
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
 }
 
 
 
-.showcase h2{
-    font-family: var(--font-five);
-    color: rgba(var(--color1),0.85);
-    font-size: clamp(1.5rem,6vw,3.2rem);
-    padding: 0.5vw;
-    transition: transform 0.85s ease;
-    cursor:default;
+
+.no-items-message {
+  font-size: 1.5rem;
+  color: rgba(var(--color4), 0.6);
+  font-weight: 500;
 }
 
-.showcase h2:hover{
-    
-    transform: scale(1.02);
-  transition: transform 0.45s ease;
+
+h3 a {
+  color: rgba(var(--color4), 0.9);
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 20px;
 }
 
-.showcase h3{
-    font-family: var(--font-five);
-    color: rgba(var(--color1),1);
-    font-size: clamp(1.5rem,6vw,2.5rem);
-    padding: 0.5vw;
-    transition: transform 1s ease;
+h3 a:hover {
+  text-decoration: underline;
+  color: rgba(var(--color4), 1);
 }
 
-.showcase h3:hover{
-      transform: scale(1.065);
-  transition: transform 0.45s ease;
-}
-
-.showcase a{
-    color:inherit;
+.showcase .menu-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
