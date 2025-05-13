@@ -116,7 +116,6 @@
 
 .scrollable-cards > * {
   min-width: clamp(90px, 5vw, 180px);
-  flex: 0 0 auto;
 }
 
 .scrollable-cards.active-drag {
