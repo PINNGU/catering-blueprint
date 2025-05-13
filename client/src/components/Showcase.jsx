@@ -1,6 +1,8 @@
 import "./Showcase.css";
 import MenuCard from "./MenuCard";
 import React, { useRef, useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom'
+
 
 function Showcase() {
   const [showcaseItems, setShowCaseItems] = useState([]);
@@ -31,7 +33,7 @@ function Showcase() {
       </div>
 
       <h3>
-        <a href="#full-menu">..ili pogledajte celi meni.</a>
+        <NavLink to="/menu">..ili pogledajte celi meni.</NavLink>
       </h3>
     </div>
   );
