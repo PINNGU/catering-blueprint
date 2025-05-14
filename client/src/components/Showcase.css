@@ -5,14 +5,13 @@
   background-color: rgba(var(--color1), 0.1);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 60px; /* Adjust for navbar offset */
-  max-height: 60vh; /* Ensure it doesn't take up too much space */
+  max-height: 60vh; 
 }
 
 .showcase h2 {
-  font-family: var(--font-secondary);
+  font-family: var(--font-five);
   font-size: clamp(2rem, 5vw, 2.5rem);
-  color: rgba(var(--color4), 0.9);
+  color: rgba(var(--color1), 0.9);
 }
 
 .sneakpeak:hover {
@@ -63,3 +62,19 @@ h3 a:hover {
   flex-direction: column;
   height: 100%;
 }
+
+.menuLink {
+  text-decoration: underline;
+  color: rgba(var(--color1), 0.9);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-family: var(--font-primary);
+  margin-top: 20px;
+}
+
+.recommendMessage {
+  font-family: var(--font-five);
+  font-size: clamp(1.7rem, 5vw, 2.5rem);
+  color: rgba(var(--color1), 0.9);
+  margin-top: clamp(0.1rem, 4vw, 5rem);
+}
+

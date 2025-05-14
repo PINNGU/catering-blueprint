@@ -35,13 +35,17 @@
   
 }
   
-  .menu-title {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    
-    font-weight: 600;
-    font-family: var(--font-secondary);
-    color: rgba(var(--color4), 0.9); 
-  }
+ .menu-title {
+  font-size: clamp(1rem, 4vw, 2rem);
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  color: rgba(var(--color4), 0.9);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;       
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
   
   .menu-description {
     color: rgba(var(--color4), 0.7);

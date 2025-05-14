@@ -19,8 +19,9 @@ function Showcase() {
   }, []);
 
   return (
+    <div className ="showcase-container">
+    <h2 className="recommendMessage">Nešto sa današnjeg menija</h2>
     <div className="showcase">
-      <h2>Nešto sa današnjeg menija...</h2>
 
       <div className="showcase-grid">
         {showcaseItems.length === 0 ? (
@@ -31,10 +32,8 @@ function Showcase() {
           ))
         )}
       </div>
-
-      <h3>
-        <NavLink to="/menu">..ili pogledajte celi meni.</NavLink>
-      </h3>
+      <h3><NavLink to="/menu" className="menuLink">..ili pogledajte celi meni.</NavLink></h3>
+    </div>
     </div>
   );
 }

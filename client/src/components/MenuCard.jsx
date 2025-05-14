@@ -8,7 +8,7 @@ const MenuCard = ({ image, name, description, price }) => {
       <div className="menu-card-content">
         <h3 className="menu-title">{name}</h3>
         <p className="menu-description">{description}</p>
-        <p className="menu-price">${price.toFixed(2)}</p>
+        <p className="menu-price">{price.toFixed(2)} RSD</p>
       </div>
     </div>
   );
