@@ -1,80 +1,130 @@
-
 .showcase {
-  padding: 20px;
-  text-align: center;
-  background-color: rgba(var(--color1), 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-height: 60vh; 
+    padding: 1vw;
+    text-align: center;
+    background-color: rgba(var(--color1), 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 77vh;
+    min-height: 40vh;
+}
+
+.showcase-container {
+    margin-top: 2vh;
 }
 
 .showcase h2 {
-  font-family: var(--font-five);
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  color: rgba(var(--color1), 0.9);
+    font-family: var(--font-five);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: rgba(var(--color1), 0.9);
 }
 
 .sneakpeak:hover {
-    background-color:rgba(var(--color4),0.867);
-     transform: scale(1.07);
+    background-color: rgba(var(--color4), 0.867);
+    transform: scale(1.07);
     transition: transform 0.66s ease;
 }
 
 .sneakpeak {
-  margin-top: 20px;
-  background-color: rgba(var(--color2), 0.1); 
-  padding: 20px;
-  border-radius: 8px;
+    margin-top: 1vh;
+    background-color: rgba(var(--color2), 0.1);
+    padding: 0;
+    border-radius: 3px;
 }
-
 
 .showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 0;
+    margin-right: 0;
 }
-
-
-
 
 .no-items-message {
-  font-size: 1.5rem;
-  color: rgba(var(--color4), 0.6);
-  font-weight: 500;
+    font-size: 1.5rem;
+    color: rgba(var(--color4), 0.6);
+    font-weight: 500;
 }
 
-
 h3 a {
-  color: rgba(var(--color4), 0.9);
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin-top: 20px;
+    color: rgba(var(--color4), 0.9);
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 5px;
 }
 
 h3 a:hover {
-  text-decoration: underline;
-  color: rgba(var(--color4), 1);
+    text-decoration: underline;
+    color: rgba(var(--color4), 1);
 }
 
 .showcase .menu-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    transition: ease 0.15s;
+}
+
+.showcase .menu-card:hover {
+    transform: scale(1.2);
+    transition: ease 0.45s;
+}
+
+@media(max-width:768px) {
+    .showcase .menu-card {
+        height: 100%;
+        width: 72%;
+        margin-bottom: -9vh;
+    }
+}
+
+@media(max-width:416px) {
+    .showcase .menu-card {
+        height: 100%;
+        width: 93%;
+        margin-bottom: 7vh;
+    }
+    .showcase .menu-card:hover {
+        transform: scale(1.40);
+    }
+}
+
+.showcase .menu-title {
+    font-size: clamp(1.4rem, 8vw, 1.85rem);
+}
+
+.showcase .menu-price {
+    font-size: clamp(0.2rem, 4vw, 1rem);
+}
+
+.showcase .menu-description {
+    font-size: clamp(0.35rem, 4vw, 0.75rem);
 }
 
 .menuLink {
-  text-decoration: underline;
-  color: rgba(var(--color1), 0.9);
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-family: var(--font-primary);
-  margin-top: 20px;
+    text-decoration: underline;
+    color: rgba(var(--color1), 0.9);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-family: var(--font-primary);
+    margin-top: 1vh;
+    transition: ease 0.5s;
+}
+
+.menuLink:hover {
+    transform: scale(1.05);
+    transition: ease 0.5s;
 }
 
 .recommendMessage {
-  font-family: var(--font-five);
-  font-size: clamp(1.7rem, 5vw, 2.5rem);
-  color: rgba(var(--color1), 0.9);
-  margin-top: clamp(0.1rem, 4vw, 5rem);
+    font-family: var(--font-five);
+    font-size: clamp(2.2rem, 5vw, 2.5rem);
+    color: rgba(var(--color1), 0.9);
+    margin-top: clamp(0.1rem, 4vw, 5rem);
+    cursor: default;
+    transition: ease 0.5s;
 }
 
+.recommendMessage:hover {
+    transform: scale(1.05);
+    transition: ease 0.5s;
+}

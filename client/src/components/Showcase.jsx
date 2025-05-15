@@ -8,7 +8,7 @@ function Showcase() {
   const [showcaseItems, setShowCaseItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/menu')
+    fetch('http://localhost:5000/api/todaysMenu')
       .then((res) => res.json())
       .then((data) => {
         setShowCaseItems(data);
@@ -32,8 +32,9 @@ function Showcase() {
           ))
         )}
       </div>
-      <h3><NavLink to="/menu" className="menuLink">..ili pogledajte celi meni.</NavLink></h3>
+      
     </div>
+    <h3 className="menuLink"><NavLink to="/menu">..ili pogledajte celi meni.</NavLink></h3>
     </div>
   );
 }

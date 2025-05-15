@@ -7,6 +7,12 @@
     transition: transform 0.97s ease;
 }
 
+@media(max-width:768px) {
+    .desc {
+        max-height: 40vh;
+    }
+}
+
 .desc:hover {
     background-color: rgba(var(--color4), 0.75);
     transform: scale(1.15) rotate(1.5deg);
