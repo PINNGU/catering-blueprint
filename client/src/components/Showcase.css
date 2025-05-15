@@ -1,12 +1,12 @@
-/* Showcase Container */
+
 .showcase {
   padding: 20px;
   text-align: center;
   background-color: rgba(var(--color1), 0.1);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 60px; /* Adjust for navbar offset */
-  max-height: 60vh; /* Ensure it doesn't take up too much space */
+  margin-top: 60px; 
+  max-height: 60vh; 
 }
 
 .showcase h2 {
