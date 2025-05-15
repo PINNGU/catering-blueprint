@@ -13,6 +13,9 @@ app.use(express.json());
 const client = new MongoClient(process.env.MONGO_URI)
 let menuCollection;
 let adminCollection;
+let todaysMenuCollection;
+
+
 
 async function connectDB(){
     await client.connect();
@@ -55,6 +58,33 @@ app.get("/api/todaysMenu", async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch todays menu items' });
   }
 });
+
+app.post("/api/todaysMenu", async (req, res) => {
+  try {
+    if (!todaysMenuCollection) throw new Error('Database not connected');
+
+    const newMenu = req.body;
+
+    
+    if (!Array.isArray(newMenu)) {
+      return res.status(400).json({ error: 'Invalid data format' });
+    }
+
+    
+    await todaysMenuCollection.deleteMany({});
+
+    
+    if (newMenu.length > 0) {
+      await todaysMenuCollection.insertMany(newMenu);
+    }
+
+    res.status(200).json({ message: "Today's menu updated successfully" });
+  } catch (err) {
+    console.error('Error updating today\'s menu:', err);
+    res.status(500).json({ error: 'Failed to update today\'s menu' });
+  }
+});
+
 
 
 

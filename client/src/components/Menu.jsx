@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './Menu.css';
 import MenuCard from './MenuCard';
+import TodaysMenuEditor from './TodaysMenuEditor';
 
 function Menu() {
   const [completeMenuItems, setCompleteMenuItems] = useState([]);
   const [TodaysMenuItems, setTodaysMenuItems] = useState([]);
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
   const scrollContainersRef = useRef([]);
 
   useEffect(() => {
@@ -91,6 +93,8 @@ function Menu() {
         <section className="menu-section">
           <h2>Današnji Meni</h2>
           <p className="menu-subtitle">Pogledajte šta smo danas spremili za vas.</p>
+          <button className="edit-menu-button" onClick={() => setIsEditorOpen(true)}>
+            Izmeni Meni </button>
           <div
             className="scrollable-cards"
             ref={(el) => (scrollContainersRef.current[0] = el)}
@@ -114,6 +118,18 @@ function Menu() {
           </div>
         </section>
       </div>
+      
+      {isEditorOpen && (
+      <TodaysMenuEditor
+        onClose={() => {
+          setIsEditorOpen(false);
+          fetch('http://localhost:5000/api/todaysMenu')
+            .then((res) => res.json())
+            .then((data) => setTodaysMenuItems(data))
+            .catch((err) => console.error("Failed to reload today's menu:", err));
+        }}
+      />
+    )}
     </div>
   );
 }
