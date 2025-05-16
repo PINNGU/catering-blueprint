@@ -6,11 +6,17 @@ const path = require('path');
 const fs = require('fs');
 const { MongoClient, ObjectId } = require('mongodb');
 const { router: adminRoutes, setAdminCollection } = require('./routes/adminRoutes');
-const verifyToken = require('./verifyToken');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+
+
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
 
 // Serve static files from public folder
 const publicPath = path.join(__dirname, 'public');
