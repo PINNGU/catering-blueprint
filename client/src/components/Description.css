@@ -1,72 +1,72 @@
-.desc{
-    margin-top: 10rem;
-    padding:1vw;
-    background-color: rgba(var(--color4),0.5);
-    border: 1px solid rgba(var(--color4),0.75);
+.desc {
+    margin-top: 10vh;
+    padding: 1vw;
+    background-color: rgba(var(--color4), 0.5);
+    border: 1px solid rgba(var(--color4), 0.75);
     border-radius: 12px;
     transition: transform 0.97s ease;
 }
 
-.desc:hover{
-    background-color: rgba(var(--color4),0.75);
+@media(max-width:768px) {
+    .desc {
+        max-height: 40vh;
+    }
+}
+
+.desc:hover {
+    background-color: rgba(var(--color4), 0.75);
     transform: scale(1.15) rotate(1.5deg);
     transition: transform 0.66s ease;
-    
 }
 
-.desc h2{
+.desc h2 {
     font-family: var(--font-primary);
-    color:rgba(var(--color2),0.85);
-    font-size:clamp(1rem,2vw,1.5rem);
+    color: rgba(var(--color2), 0.85);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     padding: 0.9vw;
 }
 
-.desc h1{
+.desc h1 {
     font-family: var(--font-five);
-    color:rgba(var(--color2),0.85);
-    font-size:clamp(1.2rem,4vw,3.0rem);
+    color: rgba(var(--color2), 0.85);
+    font-size: clamp(1.2rem, 4vw, 3.0rem);
     padding: 1vw;
-    cursor:default;
-
-    
+    cursor: default;
 }
 
-.about h2{
+.about h2 {
     font-family: var(--font-primary);
-    color:rgba(var(--color2),0.85);
-    font-size:clamp(0.7rem,3vw,1.9rem);
+    color: rgba(var(--color2), 0.85);
+    font-size: clamp(0.7rem, 1.7vw, 1.9rem);
     padding: 0.9vw;
-    margin-top:7vh;
-    cursor:default;
+    margin-top: 7vh;
+    cursor: default;
 }
 
-
-
-.insta-link{
+.insta-link {
     font-family: var(--font-four);
-    color:rgba(var(--color1),1) !important;
-    font-size:clamp(1.7rem,2.5vw,5rem);
+    color: rgba(var(--color1), 1) !important;
+    font-size: clamp(1.7rem, 2.5vw, 5rem);
     padding: 0.2vw;
 }
 
-.location-icon{
-    width:5vw;
+.location-icon {
+    width: 5vw;
     height: 3.5vh;
 }
 
-.desc span{
+.desc span {
     font-family: var(--font-four);
-    color:rgba(var(--color2),1);
-    font-size:clamp(1.7rem,4vw,3rem);
+    color: rgba(var(--color2), 1);
+    font-size: clamp(1.7rem, 4vw, 3rem);
     padding: 1vw;
-    
 }
 
-.insta-icon{
+.insta-icon {
     width: 6vw;
     height: 4vh;
 }
 
-.desc a{
-      color: rgba(var(--color1),1);     
+.desc a {
+    color: rgba(var(--color1), 1);
 }

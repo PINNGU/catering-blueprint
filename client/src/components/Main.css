@@ -1,16 +1,16 @@
-
-.compartment{
-    width:100%;
-    min-height:100vh;
+.compartment {
+    width: 100%;
+    height: 100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-snap-type: y mandatory;
-    overflow-y: auto;
-    
+    overflow-y: hidden;
 }
-#one{
-    background-color:#7eb3a7;
+
+#one {
+    background-color: #7eb3a7;
 }
+
 #one .background {
     position: relative;
     background-image: url("../assets/background1.jpg");
@@ -18,22 +18,25 @@
     background-position: center;
     width: 100%;
     height: 100vh;
-  }
-  
+}
+
 #one .overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-#one  .content {
-    position: relative; 
+}
 
-  }
-#two{
+#one .content {
+    position: relative;
+}
+
+#two {
     overflow-x: hidden;
 }
+
 #two .background {
     position: relative;
     background-image: url("../assets/background2.jpg");
@@ -41,23 +44,26 @@
     background-position: center;
     width: 100%;
     height: 100vh;
-  }
-  
+}
+
 #two .overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-#two  .content {
-    position: relative; 
-
-  }
-#three{
-    overflow-y: hidden;
-    overflow-x:hidden;
 }
+
+#two .content {
+    position: relative;
+}
+
+#three {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
 #three .background {
     position: relative;
     background-image: url("../assets/background3.jpg");
@@ -65,90 +71,78 @@
     background-position: center;
     width: 100%;
     height: 100vh;
-  }
-  
+}
+
 #three .overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-#three  .content {
-    position: relative; 
+}
 
-  }
+#three .content {
+    position: relative;
+}
 
-.main-title-site{
+.main-title-site {
     width: 100%;
     padding: 1px 1px;
-    
- 
     text-align: center;
-    
 }
 
 .grid {
-  display: grid;
-  grid-template: 1fr / 1fr 6fr 1fr 8fr 1fr; 
+    display: grid;
+    grid-template: 1fr / 1fr 6fr 1fr 8fr 1fr;
 }
 
 @media (max-width: 760px) {
-  .grid {
-    grid-template:0.00001fr 1fr 0.0001fr 1fr / 1fr; 
-  }
+    .grid {
+        grid-template: auto auto auto auto auto / 1fr;
+    }
 }
 
-.grid-two{
-  display: grid;
-  grid-template:1fr / 0.5fr 6fr 0.5fr 10fr 0.5fr;
+.grid-two {
+    display: grid;
+    grid-template: 1fr / 0.5fr 6fr 0.5fr 10fr 0.5fr;
 }
 
-@media (max-width: 760px){
-  .grid-two{
-    grid-template: auto auto auto auto auto / 1fr;
-  }
+@media (max-width: 760px) {
+    .grid-two {
+        grid-template: auto auto auto auto auto / 1fr;
+    }
 }
-
-
-
 
 .main-title-site h1 {
-
-    font-size: clamp(4rem,12vw,25rem);
+    font-size: clamp(4rem, 12vw, 25rem);
     font-family: var(--font-secondary);
     letter-spacing: 2px;
-    margin-top:0.2rem;
-    color:rgba(var(--color1),0.8);
+    margin-top: 0.2rem;
+    color: rgba(var(--color1), 0.8);
     transition: transform 1.5s ease;
-    cursor:default;
-  }
+    cursor: default;
+}
 
-  
-.main-title-site h1:hover{
-  transform: scale(1.025);
-  transition: transform 0.5s ease;
-  
-  }
-
+.main-title-site h1:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
 
 .main-title-site h2 {
-
-    font-size: clamp(3rem,12vw,6rem);
+    font-size: clamp(3rem, 12vw, 6rem);
     font-family: var(--font-three);
     letter-spacing: 2px;
-    margin-top:13rem;
-    color:rgba(var(--color2),0.8);
-    cursor:default;
-  }
-
-
+    margin-top: 12vh;
+    color: rgba(var(--color2), 0.8);
+    cursor: default;
+}
 
 .end {
-    font-size: clamp(2rem,4vw,3rem) !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
     font-family: var(--font-secondary) !important;
     letter-spacing: 2px;
-    margin-top:0.6rem;
-    color:rgba(var(--color1),0.8) !important;
-    cursor:default;
+    margin-top: 0.6rem;
+    color: rgba(var(--color1), 0.8) !important;
+    cursor: default;
 }
