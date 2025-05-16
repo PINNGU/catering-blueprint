@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import MenuCard from './MenuCard';
 import './TodaysMenuEditor.css';
-const token = localStorage.getItem('adminToken');
 
 function TodaysMenuEditor({ onClose }) {
   const [allItems, setAllItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    
+    // Safe to access localStorage after mount
+    const storedToken = localStorage.getItem('adminToken');
+    setToken(storedToken);
+
+    // Fetch full menu
     fetch('http://localhost:5000/api/menu')
       .then((res) => res.json())
       .then((data) => setAllItems(data))
       .catch((err) => console.error('Error loading menu items:', err));
 
+    // Fetch today's menu
     fetch('http://localhost:5000/api/todaysMenu')
       .then((res) => res.json())
       .then((todaysMenuData) => {
-
         setSelectedItems(todaysMenuData);
       })
       .catch((err) => console.error('Error loading todays menu items:', err));
@@ -32,11 +36,18 @@ function TodaysMenuEditor({ onClose }) {
   };
 
   const saveTodaysMenu = () => {
+    if (!token) {
+      alert('Admin nije prijavljen.');
+      return;
+    }
+
     fetch('http://localhost:5000/api/todaysMenu', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`  // ✅ token is now reliably loaded
+      },
       body: JSON.stringify(selectedItems),
-      Authorization: `Bearer ${token}`
     })
       .then((res) => {
         if (res.ok) {

@@ -11,7 +11,13 @@ function Menu() {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [isDeleterOpen, setIsDeleterOpen] = useState(false);
   const [isAddItemOpen, setIsAddItemOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const scrollContainersRef = useRef([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    setIsAdmin(!!token);
+  }, []);
 
   useEffect(() => {
     scrollContainersRef.current.forEach((container) => {
@@ -24,7 +30,7 @@ function Menu() {
       const onPointerDown = (e) => {
         isDragging = true;
         container.classList.add("active-drag");
-        document.body.classList.add("no-select"); 
+        document.body.classList.add("no-select");
         startX = e.pageX;
         scrollLeft = container.scrollLeft;
         container.setPointerCapture(e.pointerId);
@@ -40,7 +46,7 @@ function Menu() {
       const onPointerUp = (e) => {
         isDragging = false;
         container.classList.remove("active-drag");
-        document.body.classList.remove("no-select"); 
+        document.body.classList.remove("no-select");
         container.releasePointerCapture(e.pointerId);
       };
 
@@ -90,9 +96,11 @@ function Menu() {
         <section className="menu-section">
           <h2>Današnji Meni</h2>
           <p className="menu-subtitle">Pogledajte šta smo danas spremili za vas.</p>
-          <button className="edit-menu-button" onClick={() => setIsEditorOpen(true)}>
-            Izmeni Meni
-          </button>
+          {isAdmin && (
+            <button className="edit-menu-button" onClick={() => setIsEditorOpen(true)}>
+              Izmeni Meni
+            </button>
+          )}
           <div className="scrollable-cards" ref={(el) => (scrollContainersRef.current[0] = el)}>
             {TodaysMenuItems.map((item, index) => (
               <MenuCard key={index} {...item} />
@@ -103,14 +111,16 @@ function Menu() {
         <section className="menu-section">
           <h2>Sve u Ponudi</h2>
           <p className="menu-subtitle">Ovdje možete videti našu celokupnu ponudu.</p>
+          {isAdmin && (
             <div className="menu-section-buttons">
               <button className="delete-menu-button" onClick={() => setIsDeleterOpen(true)}>
-              Obriši Stavke
+                Obriši Stavke
               </button>
               <button className="add-menu-button" onClick={() => setIsAddItemOpen(true)}>
-              Dodaj Stavku
+                Dodaj Stavku
               </button>
-          </div>
+            </div>
+          )}
           <div className="scrollable-cards" ref={(el) => (scrollContainersRef.current[1] = el)}>
             {completeMenuItems.map((item, index) => (
               <MenuCard key={index} {...item} />

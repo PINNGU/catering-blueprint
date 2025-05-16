@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import MenuCard from './MenuCard';
 import './MenuItemDeleter.css';
-const token = localStorage.getItem('adminToken');
 
 function MenuItemDeleter({ onClose }) {
   const [allItems, setAllItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
+    const storedToken = localStorage.getItem('adminToken');
+    setToken(storedToken);
+
     fetch('http://localhost:5000/api/menu')
       .then((res) => res.json())
       .then((data) => setAllItems(data))
@@ -23,19 +26,31 @@ function MenuItemDeleter({ onClose }) {
   };
 
   const deleteItems = async () => {
+    if (!token) {
+      alert('Admin nije prijavljen.');
+      return;
+    }
+
     try {
       for (const item of selectedItems) {
         await fetch(`http://localhost:5000/api/menu/${item._id}`, {
           method: 'DELETE',
-          Authorization: `Bearer ${token}`
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
         });
 
         // Also delete from today's menu if it exists
         await fetch(`http://localhost:5000/api/todaysMenu/${item._id}`, {
           method: 'DELETE',
-          Authorization: `Bearer ${token}`
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
         });
       }
+
       alert('Izabrane stavke su obrisane.');
       onClose();
     } catch (err) {

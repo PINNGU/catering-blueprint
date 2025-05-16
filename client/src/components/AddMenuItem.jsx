@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddMenuItem.css';
-const token = localStorage.getItem('adminToken');
 
 function AddMenuItem({ onClose, onItemAdded }) {
   const [formData, setFormData] = useState({
@@ -9,9 +8,14 @@ function AddMenuItem({ onClose, onItemAdded }) {
     price: '',
     image: null
   });
-
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState('');
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('adminToken');
+    setToken(storedToken);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -25,9 +29,9 @@ function AddMenuItem({ onClose, onItemAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    if (!formData.image) {
-      return setError('Please select an image.');
-    }
+    if (!formData.image) return setError('Molimo izaberite sliku.');
+
+    if (!token) return setError('Admin nije prijavljen.');
 
     try {
       setIsUploading(true);
@@ -38,32 +42,35 @@ function AddMenuItem({ onClose, onItemAdded }) {
 
       const uploadRes = await fetch('http://localhost:5000/api/upload', {
         method: 'POST',
-        body: imageData.append,
-        Authorization: `Bearer ${token}`
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: imageData
       });
 
       const uploadResult = await uploadRes.json();
-      if (!uploadRes.ok) throw new Error(uploadResult.error || 'Image upload failed');
+      if (!uploadRes.ok) throw new Error(uploadResult.error || 'Greška pri slanju slike.');
 
-      // 2. Send the menu item to /api/menu
+      // 2. Create the new menu item
       const newItem = {
         name: formData.name,
         description: formData.description,
         price: parseFloat(formData.price),
-        image: uploadResult.imagePath // e.g. "/burger.jpg"
+        image: uploadResult.imagePath
       };
 
       const res = await fetch('http://localhost:5000/api/menu', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newItem),
-        Authorization: `Bearer ${token}`
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(newItem)
       });
 
       const result = await res.json();
-      if (!res.ok) throw new Error(result.error || 'Failed to add menu item');
+      if (!res.ok) throw new Error(result.error || 'Dodavanje jela nije uspelo.');
 
-      // Notify parent and close
       if (onItemAdded) onItemAdded();
       onClose();
     } catch (err) {
