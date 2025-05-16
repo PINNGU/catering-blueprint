@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MenuCard from './MenuCard';
 import './TodaysMenuEditor.css';
+const token = localStorage.getItem('adminToken');
 
 function TodaysMenuEditor({ onClose }) {
   const [allItems, setAllItems] = useState([]);
@@ -35,6 +36,7 @@ function TodaysMenuEditor({ onClose }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(selectedItems),
+      Authorization: `Bearer ${token}`
     })
       .then((res) => {
         if (res.ok) {

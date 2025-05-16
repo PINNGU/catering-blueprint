@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const { MongoClient, ObjectId } = require('mongodb');
 const { router: adminRoutes, setAdminCollection } = require('./routes/adminRoutes');
+const verifyToken = require('./verifyToken');
 
 const app = express();
 app.use(cors());
@@ -87,7 +88,7 @@ app.get('/api/todaysMenu', async (req, res) => {
 });
 
 // === Update today's menu ===
-app.post('/api/todaysMenu', async (req, res) => {
+app.post('/api/todaysMenu',verifyToken, async (req, res) => {
   try {
     if (!todaysMenuCollection) throw new Error('Database not connected');
     const newMenu = req.body;
@@ -109,7 +110,7 @@ app.post('/api/todaysMenu', async (req, res) => {
 });
 
 // === Add item to full menu ===
-app.post('/api/menu', async (req, res) => {
+app.post('/api/menu',verifyToken ,async (req, res) => {
   try {
     const newItem = req.body;
     if (!newItem || !newItem.name) {
@@ -124,7 +125,7 @@ app.post('/api/menu', async (req, res) => {
 });
 
 // === Delete item from full menu (and today's menu) ===
-app.delete('/api/menu/:id', async (req, res) => {
+app.delete('/api/menu/:id',verifyToken, async (req, res) => {
   try {
     const { id } = req.params;
     const objectId = new ObjectId(id);
@@ -144,7 +145,7 @@ app.delete('/api/menu/:id', async (req, res) => {
 });
 
 // === Delete item from today's menu only ===
-app.delete('/api/todaysMenu/:id', async (req, res) => {
+app.delete('/api/todaysMenu/:id',verifyToken,async (req, res) => {
   try {
     const { id } = req.params;
     const objectId = new ObjectId(id);

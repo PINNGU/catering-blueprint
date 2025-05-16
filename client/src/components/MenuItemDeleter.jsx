@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MenuCard from './MenuCard';
 import './MenuItemDeleter.css';
+const token = localStorage.getItem('adminToken');
 
 function MenuItemDeleter({ onClose }) {
   const [allItems, setAllItems] = useState([]);
@@ -26,11 +27,13 @@ function MenuItemDeleter({ onClose }) {
       for (const item of selectedItems) {
         await fetch(`http://localhost:5000/api/menu/${item._id}`, {
           method: 'DELETE',
+          Authorization: `Bearer ${token}`
         });
 
         // Also delete from today's menu if it exists
         await fetch(`http://localhost:5000/api/todaysMenu/${item._id}`, {
           method: 'DELETE',
+          Authorization: `Bearer ${token}`
         });
       }
       alert('Izabrane stavke su obrisane.');

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddMenuItem.css';
+const token = localStorage.getItem('adminToken');
 
 function AddMenuItem({ onClose, onItemAdded }) {
   const [formData, setFormData] = useState({
@@ -37,7 +38,8 @@ function AddMenuItem({ onClose, onItemAdded }) {
 
       const uploadRes = await fetch('http://localhost:5000/api/upload', {
         method: 'POST',
-        body: imageData
+        body: imageData.append,
+        Authorization: `Bearer ${token}`
       });
 
       const uploadResult = await uploadRes.json();
@@ -54,7 +56,8 @@ function AddMenuItem({ onClose, onItemAdded }) {
       const res = await fetch('http://localhost:5000/api/menu', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newItem)
+        body: JSON.stringify(newItem),
+        Authorization: `Bearer ${token}`
       });
 
       const result = await res.json();
