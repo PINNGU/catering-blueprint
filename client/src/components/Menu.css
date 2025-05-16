@@ -129,4 +129,12 @@
   -ms-user-select: none;
 }
 
+.menu-section-buttons {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  gap: 1rem; /* Adds vertical space between buttons */
+  margin-bottom: 1rem; /* Optional, space below the buttons */
+}
+
+
 

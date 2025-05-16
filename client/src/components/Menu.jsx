@@ -2,11 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import './Menu.css';
 import MenuCard from './MenuCard';
 import TodaysMenuEditor from './TodaysMenuEditor';
+import MenuItemDeleter from './MenuItemDeleter';
+import AddMenuItem from './AddMenuItem';
 
 function Menu() {
   const [completeMenuItems, setCompleteMenuItems] = useState([]);
   const [TodaysMenuItems, setTodaysMenuItems] = useState([]);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const [isDeleterOpen, setIsDeleterOpen] = useState(false);
+  const [isAddItemOpen, setIsAddItemOpen] = useState(false);
   const scrollContainersRef = useRef([]);
 
   useEffect(() => {
@@ -52,28 +56,24 @@ function Menu() {
     });
   }, []);
 
-  useEffect(() => {
+  const fetchCompleteMenu = () => {
     fetch('http://localhost:5000/api/menu')
       .then((res) => res.json())
-      .then((data) => {
-        setCompleteMenuItems(data);
-      })
-      .catch((err) => {
-        console.error("Failed to load menu items:", err);
-      });
-  }, []);
+      .then((data) => setCompleteMenuItems(data))
+      .catch((err) => console.error("Failed to load menu items:", err));
+  };
 
-  useEffect(() => {
+  const fetchTodaysMenu = () => {
     fetch('http://localhost:5000/api/todaysMenu')
       .then((res) => res.json())
-      .then((data) => {
-        setTodaysMenuItems(data);
-      })
-      .catch((err) => {
-        console.error("Failed to load todays menu items:", err);
-      });
-  }, []);
+      .then((data) => setTodaysMenuItems(data))
+      .catch((err) => console.error("Failed to load today's menu items:", err));
+  };
 
+  useEffect(() => {
+    fetchCompleteMenu();
+    fetchTodaysMenu();
+  }, []);
 
   return (
     <div className="menu-background-wrapper">
@@ -81,10 +81,7 @@ function Menu() {
         <div className="hero-overlay">
           <div className="hero-text">
             <h1>Savršen zalogaj</h1>
-            <p>
-              Uživajte u sveže skuvanim jelima <br />
-              svakog dana.
-            </p>
+            <p>Uživajte u sveže skuvanim jelima <br /> svakog dana.</p>
           </div>
         </div>
       </section>
@@ -94,11 +91,9 @@ function Menu() {
           <h2>Današnji Meni</h2>
           <p className="menu-subtitle">Pogledajte šta smo danas spremili za vas.</p>
           <button className="edit-menu-button" onClick={() => setIsEditorOpen(true)}>
-            Izmeni Meni </button>
-          <div
-            className="scrollable-cards"
-            ref={(el) => (scrollContainersRef.current[0] = el)}
-          >
+            Izmeni Meni
+          </button>
+          <div className="scrollable-cards" ref={(el) => (scrollContainersRef.current[0] = el)}>
             {TodaysMenuItems.map((item, index) => (
               <MenuCard key={index} {...item} />
             ))}
@@ -108,28 +103,49 @@ function Menu() {
         <section className="menu-section">
           <h2>Sve u Ponudi</h2>
           <p className="menu-subtitle">Ovdje možete videti našu celokupnu ponudu.</p>
-          <div
-            className="scrollable-cards"
-            ref={(el) => (scrollContainersRef.current[1] = el)}
-          >
+            <div className="menu-section-buttons">
+              <button className="delete-menu-button" onClick={() => setIsDeleterOpen(true)}>
+              Obriši Stavke
+              </button>
+              <button className="add-menu-button" onClick={() => setIsAddItemOpen(true)}>
+              Dodaj Stavku
+              </button>
+          </div>
+          <div className="scrollable-cards" ref={(el) => (scrollContainersRef.current[1] = el)}>
             {completeMenuItems.map((item, index) => (
               <MenuCard key={index} {...item} />
             ))}
           </div>
         </section>
       </div>
-      
+
       {isEditorOpen && (
-      <TodaysMenuEditor
-        onClose={() => {
-          setIsEditorOpen(false);
-          fetch('http://localhost:5000/api/todaysMenu')
-            .then((res) => res.json())
-            .then((data) => setTodaysMenuItems(data))
-            .catch((err) => console.error("Failed to reload today's menu:", err));
-        }}
-      />
-    )}
+        <TodaysMenuEditor
+          onClose={() => {
+            setIsEditorOpen(false);
+            fetchTodaysMenu();
+          }}
+        />
+      )}
+
+      {isDeleterOpen && (
+        <MenuItemDeleter
+          onClose={() => {
+            setIsDeleterOpen(false);
+            fetchCompleteMenu();
+            fetchTodaysMenu();
+          }}
+        />
+      )}
+
+      {isAddItemOpen && (
+        <AddMenuItem
+          onClose={() => {
+            setIsAddItemOpen(false);
+            fetchCompleteMenu();
+          }}
+        />
+      )}
     </div>
   );
 }
