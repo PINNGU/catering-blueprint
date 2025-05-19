@@ -1,0 +1,68 @@
+.menu-deleter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-deleter {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.deleter-scroll-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.deleter-card-wrapper {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s;
+  width: 180px;
+  flex: 0 0 auto;
+}
+
+.deleter-card-wrapper.selected {
+  outline: 4px solid red;
+  border-radius: 12px;
+}
+
+.deleter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.deleter-actions button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.deleter-actions button:first-child {
+  background-color: red;
+  color: white;
+}
+
+.deleter-actions button:last-child {
+  background-color: gray;
+  color: white;
+}
