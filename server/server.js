@@ -4,12 +4,13 @@ const cors = require('cors')
 const { MongoClient, ObjectId } = require('mongodb');
 const { router: adminRoutes, setAdminCollection } = require('./routes/adminRoutes');
 const cookieParser = require('cookie-parser');
-app.use(cookieParser());
+
 
 
 
 
 const app = express();
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 

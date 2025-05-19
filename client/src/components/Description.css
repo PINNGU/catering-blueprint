@@ -5,6 +5,7 @@
     border: 1px solid rgba(var(--color4), 0.75);
     border-radius: 12px;
     transition: transform 0.97s ease;
+    max-height: 60vh;
 }
 
 @media(max-width:768px) {

@@ -15,8 +15,8 @@ function Reviews() {
     { name: 'Aleksandar Topic', stars: 5, text: 'НАЈБОЉЕ ПРЖЕНО БЕЛО МЕСО У СУЗАМУ У ГРАДУ ♥', link: "https://maps.app.goo.gl/8GVLW4WkdM1Y5eVe6" },
     { name: 'Kristina Peša Đурђеvić', stars: 5, text: 'Прелепи људи, породица златних руку. Храна је укусна, све здраво и домаће 🍜🍽.', link: "https://maps.app.goo.gl/4pXk2zUEgMkFSxJRA" },
     { name: "Jasmina Zivovic", stars: 5, text: 'Одлична храна, љубазно особље', link: "https://maps.app.goo.gl/UsEwRHK3EnkxumYF6" },
-    { name: 'Kristina Peša Đурђеvić', stars: 5, text: 'Прелепи људи, породица златних руку. Храна је укусна, све здраво и домаће 🍜🍽.', link: "https://maps.app.goo.gl/4pXk2zUEgMkFSxJRA" },
-    { name: "Jasmina Zivovic", stars: 5, text: 'Одлична храна, љубазно особље', link: "https://maps.app.goo.gl/UsEwRHK3EnkxumYF6" },
+    { name: 'Ivan Šarkanj', stars: 5, text: 'Добра и укусна храна. Нема грешке у избору. Препорука', link: "https://maps.app.goo.gl/Teed1CK8RnXU1g3E7" },
+    { name: "Marko", stars: 5, text: 'Савршена храна', link: "https://maps.app.goo.gl/u5dqKMLgj7Hb41ZT6" },
     
   ];
 
